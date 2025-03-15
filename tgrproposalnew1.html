@@ -133,9 +133,9 @@
     <div class="container">
         <h1>A Wealth-Generating Opportunity for Your Organisation and its Members through Top Up and Get Reward (TGR)</h1>
 
-        <p>Dear [Head of Organisation Name],</p>
+        <p>Dear <span id="bossName"></span>,</p>
 
-        <p>I am writing to you today with an exciting proposition that has the potential to significantly benefit your organisation and its members. I would like to introduce you to <span class="highlight">Top Up and Get Reward (TGR)</span>, a dynamic and innovative telecommunications platform that empowers individuals to earn money from their everyday essential expenses – airtime, data, cable TV subscriptions, and electricity bill payments.</p>
+        <p>I am writing to you today (<span id="todayDate"></span>) with an exciting proposition that has the potential to significantly benefit your organisation and its members. I would like to introduce you to <span class="highlight">Top Up and Get Reward (TGR)</span>, a dynamic and innovative telecommunications platform that empowers individuals to earn money from their everyday essential expenses – airtime, data, cable TV subscriptions, and electricity bill payments.</p>
 
         <p>For years, we have all been using mobile phones and consuming these services, contributing to the profits of large corporations without any direct financial return to ourselves.  TGR offers a revolutionary approach by providing a personalised Virtual Top Up (VTU) portal to its registered members. This portal allows users to recharge their services and, more importantly, to earn cashback and commissions on their own transactions and those of others they introduce to the platform.</p>
 
@@ -145,9 +145,9 @@
             <li><span class="section-title">Instant Cashback on Personal Recharges:</span> Members receive <span class="highlight">2% - 2.5% cashback</span> on every airtime and data purchase, <span class="highlight">0.5%</span> on cable TV subscriptions, and <span class="highlight">1%</span> on electricity bill payments. This immediately translates to tangible savings.</li>
             <li><span class="section-title">Significant Income Potential through Referrals:</span> Earn a substantial <span class="highlight">22% referral commission</span> on registration fees.  Furthermore, earn indirect registration bonuses (<span class="highlight">5% - 1.5%</span>) and ongoing transaction commissions (<span class="highlight">0.10% - 0.15%</span>) from your downline network's activities.</li>
             <li><span class="section-title">A Business Opportunity for Everyone:</span>  Various registration packages, starting from an affordable N5,000 for students, make it accessible. Upgrading unlocks more earning potential.</li>
-            <li><span class="section-title">No Mandatory Selling:</span>  Earning is primarily from personal and network usage. As Dammie Optimus stated, "the product is what everybody must use whether you like it or not".</li>
-            <li><span class="section-title">Proven Track Record and Sustainability:</span> Founded in 2018 and registered with the CAC (RC: 1505794), verified by FIRS, and licensed by the NCC, TGR is stable and reliable.  The company will be six years old by November.</li>
-            <li><span class="section-title">Recognition and Credibility:</span> TGR received a letter of commendation from the former Minister of Communication, Professor Isa Pantami, in 2022. The fifth anniversary celebration in 2023 was chaired by the former Minister of Communication, Barr. Aditu, and covered by the NTA.</li>
+            <li><span class="section-title">No Mandatory Selling:</span>  Earning is primarily from personal and network usage. As I always say, "the product is what everybody must use whether you like it or not".</li>
+            <li><span class="section-title">Proven Track Record and Sustainability:</span> Founded in 2018 and registered with the CAC (RC: 1505794), verified by FIRS, and licensed by the NCC, TGR is stable and reliable.  The company will be <span id="companyAge"></span> years old by November.</li>
+            <li><span class="section-title">Recognition and Credibility:</span> TGR received a letter of commendation from the former Minister of Communication, Professor Isa Pantami, in 2022. The fifth anniversary celebration in 2023 was chaired by the former Minister of Communication, Barr. Adebayo Shittu, and covered by the NTA.</li>
              <li><span class="section-title">Incentive Awards:</span> Active members can qualify for travel funds (₦750k), car awards (₦5 million and ₦6 million), and a house fund (₦10 million), based on accumulated Point Value (PV).</li>
             <li><span class="section-title">Passive Income Potential:</span> As your network grows, earn transaction commissions whenever anyone in your team recharges.</li>
         </ul>
@@ -160,17 +160,37 @@
         <p>I am confident that TGR presents a remarkable opportunity. I would be honoured to deliver a comprehensive presentation to explain how TGR works and answer any questions.</p>
 
         <p class="signature">Sincerely,</p>
-        <p>[Your Name]</p>
+        <p><span id="memberName"></span>/p>
         <p class="contact-info">
-          [Your Contact Information]<br>
-          [Your TGR Referral ID (if applicable)]
+          Phone/WhatsApp: <span id="memberPhone"></span><br>
+          Referral ID: <span id="referralId"></span>
       </p>
 
 
     </div>
 
     <div class="footer">
-        © Top Up and Get Reward (TGR) -  Empowering Nigerians through Everyday Expenses
+        © Top Up and Get Reward (TGR) -  Empowering Nigerians through Daily Recharges
     </div>
+
+    <script>
+        // Get the URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const bossName = params.get('bossname') || 'Sir/Ma';
+        const memberName = params.get('membername') || 'Dammie Optimus';
+        const memberPhone = params.get('memberphone') || '08180419229';
+        const referralId = params.get('referralid') || 'DammieOptimus2';
+    
+        const companyAge = new Date().getFullYear() - 2018;
+        
+        document.getElementById('bossName').innerHTML = bossName;
+        document.getElementById('companyAge').innerHTML = companyAge;
+        document.getElementById('memberName').innerHTML = memberName;
+        document.getElementById('memberPhone').innerHTML = memberPhone;
+        document.getElementById('referralId').innerHTML = referralId;
+    
+        //Set the document date to today's date'
+        document.getElementById('todayDate').innerHTML = moment().format("dddd, Do MMMM, YYYY");
+    </script>
 </body>
 </html>
